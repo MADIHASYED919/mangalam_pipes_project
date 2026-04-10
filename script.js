@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 let heroIndex = 0;
 const heroImages = document.querySelectorAll(".slide");
 let autoSlide;
@@ -51,17 +43,6 @@ startAutoSlide();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const hamburger = document.getElementById("hamburger");
@@ -73,13 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navbar.classList.remove("active");
 
-  // ================= HAMBURGER =================
+ 
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     navbar.classList.toggle("active");
   });
 
-  // ================= DROPDOWN =================
+
   productDropdown.addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -92,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
         : "rotate(0deg)";
   });
 
-  // ================= CLICK OUTSIDE =================
+ 
   document.addEventListener("click", (e) => {
 
     if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
@@ -110,16 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
-
-
-
-
-
-
-
-
-
-
 
 
 
