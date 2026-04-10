@@ -100,9 +100,13 @@ This project can be deployed easily using:
 
 ---
 
-## 🔗 Live Demo
+## 🔗 Live Demo (Vercel)
 
-👉 Add your Vercel link here after deployment
+👉 https://mangalam-pipes-project.vercel.app/
+
+## 🔗 Live Demo (GITHUB)
+
+👉 https://madihasyed919.github.io/mangalam_pipes_project/
 
 ---
 
@@ -173,7 +177,7 @@ This project is for educational purposes.
 **Madiha Syed**
 
 * GitHub: https://github.com/MADIHASYED919
-* Portfolio: 
+* Portfolio:  https://portfolio-madihasyed.vercel.app/ 
 
 ---
 
