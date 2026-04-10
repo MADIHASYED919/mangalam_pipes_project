@@ -177,7 +177,7 @@ This project is for educational purposes.
 **Madiha Syed**
 
 * GitHub: https://github.com/MADIHASYED919
-* Portfolio:  https://portfolio-madihasyed.vercel.app/ 
+* Portfolio: https://portfolio-madihasyed.vercel.app/ 
 
 ---
 
