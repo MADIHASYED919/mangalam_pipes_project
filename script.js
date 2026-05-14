@@ -7,7 +7,7 @@ const heroImages = document.querySelectorAll(".slide");
 let autoSlide;
 
 function showHeroImage(i) {
-  heroImages.forEach((img) => img.classList.remove("active"));
+  heroImages.forEach(img => img.classList.remove("active"));
   heroImages[i].classList.add("active");
 }
 
@@ -43,10 +43,12 @@ function resetAutoSlide() {
 
 startAutoSlide();
 
+
 /* =============================================
    DOM READY — all event listeners
    ============================================= */
 document.addEventListener("DOMContentLoaded", () => {
+
   /* ------------------------------------------
      MAIN HEADER: hamburger + dropdown
      ------------------------------------------ */
@@ -68,22 +70,19 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
     dropdownContent.classList.toggle("show");
     arrowImg.style.transform = dropdownContent.classList.contains("show")
-      ? "rotate(180deg)"
-      : "rotate(0deg)";
+      ? "rotate(180deg)" : "rotate(0deg)";
   });
 
   document.addEventListener("click", (e) => {
     if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
       navbar.classList.remove("active");
     }
-    if (
-      !productDropdown.contains(e.target) &&
-      !dropdownContent.contains(e.target)
-    ) {
+    if (!productDropdown.contains(e.target) && !dropdownContent.contains(e.target)) {
       dropdownContent.classList.remove("show");
       arrowImg.style.transform = "rotate(0deg)";
     }
   });
+
 
   /* ------------------------------------------
      STICKY HEADER: hamburger + dropdown
@@ -104,9 +103,9 @@ document.addEventListener("DOMContentLoaded", () => {
     e.stopPropagation();
     stickyDropContent.classList.toggle("show");
     stickyArrow.style.transform = stickyDropContent.classList.contains("show")
-      ? "rotate(180deg)"
-      : "rotate(0deg)";
+      ? "rotate(180deg)" : "rotate(0deg)";
   });
+
 
   /* ------------------------------------------
      STICKY HEADER: scroll show / hide logic
@@ -117,28 +116,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroSection = document.getElementById("heroSection");
   let lastScrollY = 0;
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      const currentY = window.scrollY;
-      const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+  window.addEventListener("scroll", () => {
+    const currentY = window.scrollY;
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
-      if (currentY > heroBottom) {
-        /* Past hero — show on scroll UP, hide on scroll DOWN */
-        if (currentY < lastScrollY) {
-          stickyBar.classList.add("visible"); /* scrolling UP */
-        } else {
-          stickyBar.classList.remove("visible"); /* scrolling DOWN */
-        }
+    if (currentY > heroBottom) {
+      /* Past hero — show on scroll UP, hide on scroll DOWN */
+      if (currentY < lastScrollY) {
+        stickyBar.classList.add("visible");    /* scrolling UP */
       } else {
-        /* Within or above hero — always hide */
-        stickyBar.classList.remove("visible");
+        stickyBar.classList.remove("visible"); /* scrolling DOWN */
       }
+    } else {
+      /* Within or above hero — always hide */
+      stickyBar.classList.remove("visible");
+    }
 
-      lastScrollY = currentY;
-    },
-    { passive: true },
-  );
+    lastScrollY = currentY;
+  }, { passive: true });
+
 
   /* ------------------------------------------
      IMAGE ZOOM PANEL
@@ -172,12 +168,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
   /* ------------------------------------------
      DOWNLOAD LINKS
      ------------------------------------------ */
   const links = document.querySelectorAll(".dl-link");
 
-  links.forEach((link) => {
+  links.forEach(link => {
     link.addEventListener("click", function () {
       const fileName = this.getAttribute("download");
       const original = this.innerHTML;
@@ -193,23 +190,24 @@ document.addEventListener("DOMContentLoaded", () => {
       showToast("Downloading: " + fileName);
     });
   });
+
 }); /* end DOMContentLoaded */
+
 
 /* =============================================
    FAQ ACCORDION
    ============================================= */
 const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach((item) => {
+faqItems.forEach(item => {
   item.querySelector(".faq-question").addEventListener("click", () => {
     /* Close all others */
-    faqItems.forEach((i) => {
-      if (i !== item) i.classList.remove("active");
-    });
+    faqItems.forEach(i => { if (i !== item) i.classList.remove("active"); });
     /* Toggle current */
     item.classList.toggle("active");
   });
 });
+
 
 /* =============================================
    APPLICATION SLIDER
@@ -219,7 +217,7 @@ const cards = document.querySelectorAll(".application-card");
 let currentIndex = 0;
 
 function updateActive() {
-  cards.forEach((card) => card.classList.remove("active"));
+  cards.forEach(card => card.classList.remove("active"));
   cards[currentIndex].classList.add("active");
 }
 
@@ -246,6 +244,7 @@ cards.forEach((card, index) => {
   });
 });
 
+
 /* =============================================
    PROCESS TABS + DYNAMIC CONTENT
    ============================================= */
@@ -254,32 +253,32 @@ const data = [
     img: "images/img1.jpg",
     title: "High-Grade Raw Material Selection",
     desc: "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness.",
-    list: ["PE100 grade material", "Optimal molecular weight distribution"],
+    list: ["PE100 grade material", "Optimal molecular weight distribution"]
   },
   {
     img: "images/portfolio1.jpg",
     title: "Extrusion Process",
     desc: "Molten material is shaped into pipe form using extrusion machines.",
-    list: ["High precision shaping", "Uniform thickness"],
+    list: ["High precision shaping", "Uniform thickness"]
   },
   {
     img: "images/portfolio2.jpg",
     title: "Cooling Stage",
     desc: "Pipes are cooled gradually to maintain structural integrity.",
-    list: ["Controlled cooling", "Improved strength"],
+    list: ["Controlled cooling", "Improved strength"]
   },
   {
     img: "images/portfolio3.jpg",
     title: "High-Grade Raw Material Selection",
     desc: "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness.",
-    list: ["PE100 grade material", "Optimal molecular weight distribution"],
+    list: ["PE100 grade material", "Optimal molecular weight distribution"]
   },
   {
     img: "images/img7.jpg",
     title: "Cooling Stage",
     desc: "Pipes are cooled gradually to maintain structural integrity.",
-    list: ["Controlled cooling", "Improved strength"],
-  },
+    list: ["Controlled cooling", "Improved strength"]
+  }
 ];
 
 let index1 = 0;
@@ -292,7 +291,7 @@ function updateUI() {
   const list = document.querySelector(".process-images");
   list.innerHTML = "";
 
-  data[index1].list.forEach((item) => {
+  data[index1].list.forEach(item => {
     let p = document.createElement("p");
     p.innerHTML = `<img src="./images/CheckCircle.png" alt="checkbox" />${item}`;
     list.appendChild(p);
@@ -313,28 +312,22 @@ const tabs = document.querySelectorAll(".tabs button");
 
 tabs.forEach((tab, i) => {
   tab.addEventListener("click", () => {
-    tabs.forEach((t) => t.classList.remove("active"));
+    tabs.forEach(t => t.classList.remove("active"));
     tab.classList.add("active");
     index1 = i;
     updateUI();
   });
 });
 
+
 /* =============================================
    POPUPS
    ============================================= */
-function openPopup() {
-  document.getElementById("popup").style.display = "flex";
-}
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-function openDownloadPopup() {
-  document.getElementById("downloadPopup").style.display = "flex";
-}
-function closeDownloadPopup() {
-  document.getElementById("downloadPopup").style.display = "none";
-}
+function openPopup() { document.getElementById("popup").style.display = "flex"; }
+function closePopup() { document.getElementById("popup").style.display = "none"; }
+function openDownloadPopup() { document.getElementById("downloadPopup").style.display = "flex"; }
+function closeDownloadPopup() { document.getElementById("downloadPopup").style.display = "none"; }
+
 
 /* =============================================
    TOAST NOTIFICATION
@@ -343,7 +336,5 @@ function showToast(message) {
   const toast = document.getElementById("dl-toast");
   toast.textContent = message;
   toast.style.opacity = "1";
-  setTimeout(() => {
-    toast.style.opacity = "0";
-  }, 3000);
+  setTimeout(() => { toast.style.opacity = "0"; }, 3000);
 }
